@@ -19,7 +19,14 @@ public class PropertyExample {
     }
 
     void createProperty() {
-        throw new RuntimeException("Not yet implemented !");
+        SimpleIntegerProperty anIntProperty = new SimpleIntegerProperty();
+        anIntProperty.set(1024);
+        System.out.println();
+        System.out.println("anIntProperty = " + anIntProperty);
+        System.out.println("anIntProperty.get() = " + anIntProperty.get());
+        System.out.println("anIntProperty.getValue() = " + anIntProperty.get());
+
+
     }
 
     void addAndRemoveInvalidationListener() {
