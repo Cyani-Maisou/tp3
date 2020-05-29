@@ -1,6 +1,7 @@
 package fr.univ_amu.iut.exercice3_1;
 
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.binding.StringExpression;
 import javafx.beans.property.IntegerProperty;
@@ -63,10 +64,25 @@ public class TriangleArea {
     }
 
     void printResult() {
-        throw new RuntimeException("Not yet implemented !");
+        System.out.println(output);
     }
 
     private void createBinding() {
-        throw new RuntimeException("Not yet implemented !");
+//        formule : |(x1*y2 - x1*y3 + x2*y3 - x2*y1 + x3*y1 - x3*y2)|/2
+        NumberBinding x1y2 = Bindings.multiply(x1, y2);
+        NumberBinding x1y3 = Bindings.multiply(x1, y3);
+        NumberBinding x2y3 = Bindings.multiply(x2, y3);
+        NumberBinding x2y1 = Bindings.multiply(x2, y1);
+        NumberBinding x3y1 = Bindings.multiply(x3, y1);
+        NumberBinding x3y2 = Bindings.multiply(x3, y2);
+
+        NumberBinding sommePartieAbsolue = Bindings.subtract(x1y2, x1y3).add(x2y3).subtract(x2y1).add(x3y1).subtract(x3y2);
+        NumberBinding partieAbsolue =
+                Bindings.when(sommePartieAbsolue.lessThan(0)).then(sommePartieAbsolue.negate()).otherwise(sommePartieAbsolue);
+
+        area = partieAbsolue.divide(2.0);
+        output = Bindings.format("La valeur de %d/2 est %.1f", partieAbsolue, partieAbsolue.divide(2.0));
+
+
     }
 }
