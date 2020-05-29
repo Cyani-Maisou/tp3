@@ -29,7 +29,6 @@ public class PropertyExample {
     }
 
     void addAndRemoveInvalidationListener() {
-//        throw new RuntimeException("Not yet implemented !");
         System.out.println();
         System.out.println("Add invalidation listener.");
         anIntProperty.addListener(invalidationListener);
@@ -46,7 +45,20 @@ public class PropertyExample {
     }
 
     void addAndRemoveChangeListener() {
-        throw new RuntimeException("Not yet implemented !");
+//        throw new RuntimeException("Not yet implemented !");
+        System.out.println();
+        System.out.println("Add change listener.");
+        anIntProperty.addListener(changeListener);
+        System.out.println("setValue() with 1024.");
+        anIntProperty.setValue(1024);
+        System.out.println("set() with 2105.");
+        anIntProperty.set(2105);
+        System.out.println("setValue() with 5012.");
+        anIntProperty.setValue(5012);
+        System.out.println("Remove change listener.");
+        anIntProperty.removeListener(changeListener);
+        System.out.println("set() with 1024.");
+        anIntProperty.set(1024);
     }
 
 
