@@ -64,7 +64,10 @@ public class TriangleArea {
     }
 
     void printResult() {
-        output = Bindings.format("For P1(" + x1.get() + "," + y1.get() + "), " + "P2(" + x2.get() + "," + y2.get() + "), " + "P3(" + x3.get() + "," + y3.get() + "), the area of triangle ABC is " + getArea());
+        output = Bindings.format("For P1(" + x1.get() + "," + y1.get() + "), "
+                + "P2(" + x2.get() + "," + y2.get() + "), "
+                + "P3(" + x3.get() + "," + y3.get() + "), the area of triangle ABC is "
+                + getArea());
         System.out.println(output.get());
     }
 
@@ -82,7 +85,5 @@ public class TriangleArea {
                 Bindings.when(sommePartieAbsolue.lessThan(0)).then(sommePartieAbsolue.negate()).otherwise(sommePartieAbsolue);
 
         area = partieAbsolue.divide(2.0);
-//        output = Bindings.format("La valeur de %d/2 est %.1f", partieAbsolue, partieAbsolue.divide(2.0));
-//        output = Bindings.format("For P1(" + x1.get() + ", " + y1.get() + "), " + "P2(" + x2.get() + "," + y2.get() + "), " + "P3(" + x3.get() + "," + y3.get() + "), the area of triangle ABC is " + getArea());
     }
 }
