@@ -1,6 +1,8 @@
 package fr.univ_amu.iut.exercice3;
 
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -141,12 +143,13 @@ public class TriangleArea {
     }
 
     private void createBinding() {
-//        throw new RuntimeException("Not yet implemented !");
-        area.bind(x1);
-        area.bind(x2);
-        area.bind(x3);
-        area.bind(y1);
-        area.bind(y2);
-        area.bind(y3);
+//         formule : |(x1*y2 - x1*y3 + x2*y3 - x2*y1 + x3*y1 - x3*y2)|/2
+        NumberBinding x1y2 = Bindings.multiply(x1, y2);
+        NumberBinding x1y3 = Bindings.multiply(x1, y3);
+        NumberBinding x2y3 = Bindings.multiply(x2, y3);
+        NumberBinding x2y1 = Bindings.multiply(x2, y1);
+        NumberBinding x3y1 = Bindings.multiply(x3, y1);
+        NumberBinding x3y2 = Bindings.multiply(x3, y2);
+
     }
 }
