@@ -141,6 +141,12 @@ public class TriangleArea {
     }
 
     private void createBinding() {
-        throw new RuntimeException("Not yet implemented !");
+//        throw new RuntimeException("Not yet implemented !");
+        area.bind(x1);
+        area.bind(x2);
+        area.bind(x3);
+        area.bind(y1);
+        area.bind(y2);
+        area.bind(y3);
     }
 }
