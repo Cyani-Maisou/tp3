@@ -139,7 +139,7 @@ public class TriangleArea {
     }
 
     void printResult() {
-        throw new RuntimeException("Not yet implemented !");
+//        throw new RuntimeException("Not yet implemented !");
     }
 
     private void createBinding() {
@@ -150,6 +150,11 @@ public class TriangleArea {
         NumberBinding x2y1 = Bindings.multiply(x2, y1);
         NumberBinding x3y1 = Bindings.multiply(x3, y1);
         NumberBinding x3y2 = Bindings.multiply(x3, y2);
+
+        NumberBinding sommePartieAbsolue = Bindings.subtract(x1y2, x1y3).add(x2y3).subtract(x2y1).add(x3y1).subtract(x3y2);
+        NumberBinding partieAbsolue =
+                Bindings.when(sommePartieAbsolue.lessThan(0)).then(sommePartieAbsolue.negate()).otherwise(sommePartieAbsolue);
+        area.bind(partieAbsolue.divide(2.0));
 
     }
 }
