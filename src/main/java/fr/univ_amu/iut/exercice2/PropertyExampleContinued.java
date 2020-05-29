@@ -30,14 +30,18 @@ public class PropertyExampleContinued {
     void bindAndUnbindOnePropertyToAnother() {
         System.out.println();
         IntegerProperty otherProperty = new SimpleIntegerProperty(0);
-        System.out.println(otherProperty);
+        System.out.println("otherProperty.get() = " + otherProperty.get()); //0
+        System.out.println("Binding otherProperty to anIntProperty.");
         otherProperty.bind(anIntProperty);
-        System.out.println(otherProperty);
+        System.out.println("otherProperty.get() = " + otherProperty.get()); //1024
+        System.out.println("Calling anIntProperty.set(7168).");
         anIntProperty.setValue(7168);
-        System.out.println(otherProperty);
+        System.out.println("otherProperty.get() = " + otherProperty.get()); //7168
+        System.out.println("Unbinding otherProperty from anIntProperty.");
         otherProperty.unbind();
-        System.out.println(otherProperty);
+        System.out.println("otherProperty.get() = " + otherProperty.get()); //7168
+        System.out.println("Calling anIntProperty.set(8192).");
         anIntProperty.setValue(8192);
-        System.out.println(otherProperty);
+        System.out.println("otherProperty.get() = " + otherProperty.get()); //7168
     }
 }
