@@ -6,8 +6,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 
 public class PropertyExample {
-    private ChangeListener changeListener = (observableValue, o, t1) -> System.out.println("The observableValue has changed: oldValue = "  + o + ", newValue = " + t1);
-    private InvalidationListener invalidationListener;
+    private ChangeListener changeListener = (observableValue, o, t1)
+            -> System.out.println("The observableValue has changed: oldValue = "  + o + ", newValue = " + t1);
+    private InvalidationListener invalidationListener = (observable) -> System.out.println("The observable has been invalidated.");
 
     private IntegerProperty anIntProperty;
 
