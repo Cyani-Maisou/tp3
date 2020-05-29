@@ -62,7 +62,7 @@ public class TriangleAreaTest {
         triangleArea.setP3(4, 3);
         triangleArea.printResult();
 
-        verify(out).println("For P1(0,0), P2(6,0), P3(4,3), the area of triangle ABC is 9,0");
+        verify(out).println("For P1(0,0), P2(6,0), P3(4,3), the area of triangle ABC is 9.0");
     }
 
     @Disabled
@@ -72,6 +72,6 @@ public class TriangleAreaTest {
         triangleArea.setP2(5, 5);
         triangleArea.setP3(5, 0);
         triangleArea.printResult();
-        verify(out).println("For P1(0,0), P2(5,5), P3(5,0), the area of triangle ABC is 12,5");
+        verify(out).println("For P1(0,0), P2(5,5), P3(5,0), the area of triangle ABC is 12.5");
     }
 }
