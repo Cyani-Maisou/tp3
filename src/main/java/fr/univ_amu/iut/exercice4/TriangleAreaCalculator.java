@@ -39,7 +39,13 @@ public class TriangleAreaCalculator extends Application {
     private GridPane root = new GridPane();
 
     private static void configSlider(Slider slider) {
-        throw new RuntimeException("Not yet implemented !");
+        slider.setMin(0);
+        slider.setMax(10);
+        slider.setValue(0);
+        slider.setShowTickMarks(true);
+        slider.setShowTickLabels(true);
+        slider.setSnapToTicks(true);
+        slider.setBlockIncrement(1.0);
     }
 
     @Override
@@ -65,7 +71,6 @@ public class TriangleAreaCalculator extends Application {
 
     private void configGridPane() {
         throw new RuntimeException("Not yet implemented !");
-
     }
 
     private void addArea() {
