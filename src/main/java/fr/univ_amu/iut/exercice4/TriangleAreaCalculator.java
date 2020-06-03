@@ -91,8 +91,8 @@ public class TriangleAreaCalculator extends Application {
     }
 
     private void addArea() {
-        root.add(areaLabel, 0, 8);
-        root.add(areaTextField, 1, 8);
+        root.add(areaLabel, 0, 9);
+        root.add(areaTextField, 1, 9);
     }
 
     private void addSliders() {
@@ -106,16 +106,16 @@ public class TriangleAreaCalculator extends Application {
         root.add(y2Slider, 1, 5);
         root.add(y2Label, 0,5);
 
-        root.add(x3Slider, 1, 6);
-        root.add(x3Label, 0,6);
-        root.add(y3Slider, 1, 7);
-        root.add(y3Label, 0,7);
+        root.add(x3Slider, 1, 7);
+        root.add(x3Label, 0,7);
+        root.add(y3Slider, 1, 8);
+        root.add(y3Label, 0,8);
     }
 
     private void addPointLabels() {
         root.add(p1Label, 1, 0);
         root.add(p2Label, 1, 3);
-        root.add(p3Label, 1, 5);
+        root.add(p3Label, 1, 6);
      }
 
     private void createBinding() {
