@@ -66,7 +66,12 @@ public class TriangleAreaCalculator extends Application {
     }
 
     private void configSliders() {
-        throw new RuntimeException("Not yet implemented !");
+        configSlider(x1Slider);
+        configSlider(x2Slider);
+        configSlider(x3Slider);
+        configSlider(y1Slider);
+        configSlider(y2Slider);
+        configSlider(y3Slider);
     }
 
     private void configGridPane() {
