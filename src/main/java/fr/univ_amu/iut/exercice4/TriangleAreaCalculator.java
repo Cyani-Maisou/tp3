@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -77,8 +78,14 @@ public class TriangleAreaCalculator extends Application {
 
     private void configGridPane() {
         root.setPadding(new Insets(10));
-        root.setHgap(10.0);
-        root.setVgap(10.0);
+        root.setHgap(10);
+        root.setVgap(10);
+        ColumnConstraints firstColumnConstraints = new ColumnConstraints();
+        ColumnConstraints secondColumnConstraints = new ColumnConstraints();
+        firstColumnConstraints.setMinWidth(50);
+        firstColumnConstraints.setPrefWidth(50);
+        secondColumnConstraints.setFillWidth(true);
+        root.getColumnConstraints().addAll(firstColumnConstraints, secondColumnConstraints);
     }
 
     private void addArea() {
