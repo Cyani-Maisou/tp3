@@ -93,25 +93,27 @@ public class TriangleAreaCalculator extends Application {
     }
 
     private void addSliders() {
-        root.add(x1Slider, 1, 0);
-        root.add(x1Label, 0,0);
-        root.add(y1Slider, 1, 1);
-        root.add(y1Label, 0,1);
+        root.add(x1Slider, 1, 1);
+        root.add(x1Label, 0,1);
+        root.add(y1Slider, 1, 2);
+        root.add(y1Label, 0,2);
 
-        root.add(x2Slider, 1, 2);
-        root.add(x2Label, 0,2);
-        root.add(y2Slider, 1, 3);
-        root.add(y2Label, 0,3);
+        root.add(x2Slider, 1, 4);
+        root.add(x2Label, 0,4);
+        root.add(y2Slider, 1, 5);
+        root.add(y2Label, 0,5);
 
-        root.add(x3Slider, 1, 4);
-        root.add(x3Label, 0,4);
-        root.add(y3Slider, 1, 5);
-        root.add(y3Label, 0,5);
+        root.add(x3Slider, 1, 6);
+        root.add(x3Label, 0,6);
+        root.add(y3Slider, 1, 7);
+        root.add(y3Label, 0,7);
     }
 
     private void addPointLabels() {
-        throw new RuntimeException("Not yet implemented !");
-    }
+        root.add(p1Label, 1, 0);
+        root.add(p2Label, 1, 3);
+        root.add(p3Label, 1, 5);
+     }
 
     private void createBinding() {
         throw new RuntimeException("Not yet implemented !");
