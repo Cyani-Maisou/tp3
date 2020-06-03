@@ -4,6 +4,7 @@ import fr.univ_amu.iut.exercice3.TriangleArea;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
+import javafx.beans.binding.StringBinding;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -119,17 +120,21 @@ public class TriangleAreaCalculator extends Application {
      }
 
     private void createBinding() {
-        NumberBinding x1y2 = Bindings.multiply(x1Slider.valueProperty(), y2Slider.valueProperty());
-        NumberBinding x1y3 = Bindings.multiply(x1Slider.valueProperty(), y3Slider.valueProperty());
-        NumberBinding x2y3 = Bindings.multiply(x2Slider.valueProperty(), y3Slider.valueProperty());
-        NumberBinding x2y1 = Bindings.multiply(x2Slider.valueProperty(), y1Slider.valueProperty());
-        NumberBinding x3y1 = Bindings.multiply(x3Slider.valueProperty(), y1Slider.valueProperty());
-        NumberBinding x3y2 = Bindings.multiply(x3Slider.valueProperty(), y2Slider.valueProperty());
-
-        NumberBinding sommePartieAbsolue = Bindings.subtract(x1y2, x1y3).add(x2y3).subtract(x2y1).add(x3y1).subtract(x3y2);
-        NumberBinding partieAbsolue =
-                Bindings.when(sommePartieAbsolue.lessThan(0)).then(sommePartieAbsolue.negate()).otherwise(sommePartieAbsolue);
-        NumberBinding area = partieAbsolue.divide(2.0);
-        areaTextField.setText(area.toString());
+        StringBinding area = new StringBinding() {
+            {
+                super.bind(x1Slider.valueProperty(), y1Slider.valueProperty(), x2Slider.valueProperty(), y2Slider.valueProperty(), x3Slider.valueProperty(), y3Slider.valueProperty());
+            }
+            @Override
+            protected String computeValue() {
+                double x1v = x1Slider.getValue();
+                double y1v = y1Slider.getValue();
+                double x2v = x2Slider.getValue();
+                double y2v = y2Slider.getValue();
+                double x3v = x3Slider.getValue();
+                double y3v = y3Slider.getValue();
+                double total = x1v*y2v - x1v*y3v + x2v*y3v - x2v*y1v + x3v*y2v - x3v*y2v;
+                return "" + ((total < 0)? -total : total) / 2.0;
+            }
+        };
     }
 }
