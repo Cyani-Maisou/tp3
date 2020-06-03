@@ -2,6 +2,8 @@ package fr.univ_amu.iut.exercice4;
 
 import fr.univ_amu.iut.exercice3.TriangleArea;
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.NumberBinding;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -89,7 +91,8 @@ public class TriangleAreaCalculator extends Application {
     }
 
     private void addArea() {
-        throw new RuntimeException("Not yet implemented !");
+        root.add(areaLabel, 0, 8);
+        root.add(areaTextField, 1, 8);
     }
 
     private void addSliders() {
@@ -116,6 +119,17 @@ public class TriangleAreaCalculator extends Application {
      }
 
     private void createBinding() {
-        throw new RuntimeException("Not yet implemented !");
+        NumberBinding x1y2 = Bindings.multiply(x1Slider.valueProperty(), y2Slider.valueProperty());
+        NumberBinding x1y3 = Bindings.multiply(x1Slider.valueProperty(), y3Slider.valueProperty());
+        NumberBinding x2y3 = Bindings.multiply(x2Slider.valueProperty(), y3Slider.valueProperty());
+        NumberBinding x2y1 = Bindings.multiply(x2Slider.valueProperty(), y1Slider.valueProperty());
+        NumberBinding x3y1 = Bindings.multiply(x3Slider.valueProperty(), y1Slider.valueProperty());
+        NumberBinding x3y2 = Bindings.multiply(x3Slider.valueProperty(), y2Slider.valueProperty());
+
+        NumberBinding sommePartieAbsolue = Bindings.subtract(x1y2, x1y3).add(x2y3).subtract(x2y1).add(x3y1).subtract(x3y2);
+        NumberBinding partieAbsolue =
+                Bindings.when(sommePartieAbsolue.lessThan(0)).then(sommePartieAbsolue.negate()).otherwise(sommePartieAbsolue);
+        NumberBinding area = partieAbsolue.divide(2.0);
+        areaTextField.setText(area.toString());
     }
 }
