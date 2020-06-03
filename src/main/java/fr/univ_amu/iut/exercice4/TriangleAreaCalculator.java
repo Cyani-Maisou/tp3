@@ -48,8 +48,8 @@ public class TriangleAreaCalculator extends Application {
         slider.setValue(0);
         slider.setShowTickMarks(true);
         slider.setShowTickLabels(true);
+        slider.setMajorTickUnit(5);
         slider.setSnapToTicks(true);
-        slider.setBlockIncrement(1.0);
     }
 
     @Override
