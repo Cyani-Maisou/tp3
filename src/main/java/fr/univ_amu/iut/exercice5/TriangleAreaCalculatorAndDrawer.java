@@ -76,8 +76,8 @@ public class TriangleAreaCalculatorAndDrawer extends Application {
         drawPane.setPrefSize(500, 500);
         drawPane.setScaleX(50/1);
         drawPane.setScaleY(50/1);
-
         drawPane.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
+        drawPane.getChildren().addAll(p1p2, p2p3, p3p1);
     }
 
     private void configSlider(Slider slider) {
