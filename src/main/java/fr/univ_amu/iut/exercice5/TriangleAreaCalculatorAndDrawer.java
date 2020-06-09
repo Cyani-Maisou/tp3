@@ -147,6 +147,21 @@ public class TriangleAreaCalculatorAndDrawer extends Application {
                 return "" + ((total < 0)? -total : total) / 2.0;
             }
         };
+        p1p2.startXProperty().bind(x1Slider.valueProperty());
+        p1p2.startYProperty().bind(y1Slider.valueProperty());
+        p1p2.endXProperty().bind(x2Slider.valueProperty());
+        p1p2.endXProperty().bind(y2Slider.valueProperty());
+
+        p2p3.startXProperty().bind(x2Slider.valueProperty());
+        p2p3.startYProperty().bind(y2Slider.valueProperty());
+        p2p3.endXProperty().bind(x3Slider.valueProperty());
+        p2p3.endYProperty().bind(y3Slider.valueProperty());
+
+        p3p1.startXProperty().bind(x3Slider.valueProperty());
+        p3p1.startYProperty().bind(y3Slider.valueProperty());
+        p3p1.startXProperty().bind(x1Slider.valueProperty());
+        p3p1.startYProperty().bind(y1Slider.valueProperty());
+
         areaTextField.textProperty().bind(area);
     }
 }
