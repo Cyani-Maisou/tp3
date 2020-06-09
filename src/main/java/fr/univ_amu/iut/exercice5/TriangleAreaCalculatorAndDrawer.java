@@ -74,7 +74,9 @@ public class TriangleAreaCalculatorAndDrawer extends Application {
     }
 
     private void addDrawPane() {
-        throw new RuntimeException("Not yet implemented !");
+        drawPane.setPrefSize(500, 500);
+        drawPane.setScaleX(50/1);
+        drawPane.setScaleY(50/1);
     }
 
     private void configSlider(Slider slider) {
