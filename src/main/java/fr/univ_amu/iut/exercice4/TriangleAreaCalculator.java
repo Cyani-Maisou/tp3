@@ -136,5 +136,6 @@ public class TriangleAreaCalculator extends Application {
                 return "" + ((total < 0)? -total : total) / 2.0;
             }
         };
+        areaTextField.textProperty().bind(area);
     }
 }
