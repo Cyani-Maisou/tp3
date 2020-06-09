@@ -8,9 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
@@ -77,6 +76,8 @@ public class TriangleAreaCalculatorAndDrawer extends Application {
         drawPane.setPrefSize(500, 500);
         drawPane.setScaleX(50/1);
         drawPane.setScaleY(50/1);
+
+        drawPane.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
     }
 
     private void configSlider(Slider slider) {
